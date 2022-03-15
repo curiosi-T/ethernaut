@@ -1,14 +1,13 @@
 import pytest
-from scripts.deploy import deploy_coinflip
-from brownie import CoinFlipAttack, network, config, accounts, Contract
+from brownie import CoinFlipAttack, CoinFlip, network, config, accounts, Contract
 
 account = accounts.add(config["wallets"]["from_key"])
 
 
 def get_ethernaut_contract():
     contract = Contract.from_abi(
-        CoinFlipAttack._name, config["networks"][network.show_active(
-        )]["contract_addr"], CoinFlipAttack.abi
+        CoinFlip._name, config["networks"][network.show_active(
+        )]["contract_addr"], CoinFlip.abi
     )
 
     return contract
