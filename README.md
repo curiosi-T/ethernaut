@@ -1,2 +1,12 @@
 # ethernaut
-my solutions for ethernaut wargame
+[Ethernaut](https://ethernaut.openzeppelin.com/) is a fun game to learn blockchain development in Solidity. It consists of 25 challenges that need to be solved. I used [Brownie]() for local testing and deploying the contracts to the Rinkeby network. Other Solidity development frameworks one can use are [Truffle](https://trufflesuite.com/) or [Hardhat](https://hardhat.org/). 
+
+Here are my solutions:
+### 1. Fallback
+- Call *contribute()* function with ether value > 0.001
+- Call *receive()* function with ether value > 0: e.g. *await contract.send(toWei("0.1", "ether"))*
+- Call *withdraw()*
+### 2. Fallout
+- There is a typo in the constructor. Just call the *Fal1out()* functions to become the owner
+### 3. Coin Flip
+- A [2nd contract (attacking contract)](solutions/contracts/CoinFlipAttack.sol) is needed which uses the logic from the actual flipping contract to predict the result and then calls the actual contract with the calculated result. 
