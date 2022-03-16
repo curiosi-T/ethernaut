@@ -11,5 +11,8 @@ Here are my solutions:
 ### 3. Coin Flip
 - A [2nd contract (attacking contract)](solutions/contracts/CoinFlipAttack.sol) is used to run the logic from the actual flipping contract to predict the result and then calls the actual contract with the calculated result. 
 ### 4. Telephone
-- Takeaway: Know the difference between tx.origin and msg.sender: *tx.origin* refers to the address the transaction was initiated from while *msg.sender* is the address that invoked the function. 
-- Solution: Just call *changeOwner()* from [another contract](solutions/contracts/TelephoneAttack.sol).
+- Know the difference between tx.origin and msg.sender: *tx.origin* refers to the address the transaction was initiated from while *msg.sender* is the address that invoked the function. 
+- Solution: Call *changeOwner()* from [another contract](solutions/contracts/TelephoneAttack.sol).
+### 5. Token
+- The require statement in the transfer function is useless, as the left side (*balances[msg.sender] - _value*) of the operand is rendered as uint, which is always greater than 0.
+- Solution: Call *transfer* with a value greater than 20.
